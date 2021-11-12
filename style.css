@@ -1,0 +1,238 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    width: 100%;
+    height: auto;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+body{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: hsl(185, 41%, 84%);
+    color: hsl(183, 100%, 15%);
+}
+
+h1{
+    padding-block: 2rem;
+    letter-spacing: .5rem;
+    text-align: center;
+}
+h2{
+    font-size: 20px;
+    font-weight: 500;
+    padding-bottom: .2rem;
+}
+
+main{
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-top-left-radius: 1.2rem;
+    border-top-right-radius: 1.2rem;
+    padding: 1.5rem;
+}
+@media (min-width: 800px) {
+    html{
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    body{
+        height: auto;
+    }
+    main{
+        width: min(90%, 50rem);
+        display: grid;
+        grid-template: 
+            "leftSection rightSection" auto
+            "attribution attribution" auto
+            /1fr 1fr;
+        column-gap: 2rem;
+        border-bottom-left-radius: 1.2rem;
+        border-bottom-right-radius: 1.2rem;
+    }
+    .leftSection{
+        grid-area: leftSection;
+    }
+    .rightSection{
+        grid-area: rightSection;
+    }
+    .attribution{
+        grid-area: attribution;
+    }
+}
+
+.bill{
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+.pplNum > input,
+.bill input{
+    width: 100%;
+    padding: .5rem;
+    text-align: end;
+    font-size: 1.4rem;
+    border-radius: .3rem;
+    border: none;
+    background: hsl(189, 41%, 97%);
+    background-image: url('./images/icon-dollar.svg');
+    background-repeat: no-repeat;
+    background-position: .5rem 50%;
+}
+
+.tips{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .7rem;
+    column-gap: 1rem;
+    text-align: center;
+    padding-block: 1rem;
+}
+
+.tip{
+    width: 100%;
+    height: 100%;
+    padding: .6rem;
+    background: hsl(183, 100%, 15%);
+    color: hsl(189, 41%, 97%);
+    font-size: 1.6rem;
+    font-weight: 600;
+    border-radius: .4rem;
+    border: none;
+    cursor: pointer;
+}
+.tip:focus{
+    background: hsl(172, 67%, 45%);
+}
+.tip:hover{
+    background: hsl(172, 67%, 45%);
+    transition: 100ms;
+}
+
+.inputH{
+    padding: 0;
+
+}
+.tips input{
+    text-align: end;
+    font-size: 1.6rem;
+    font-weight: 500;
+    border-radius: .4rem;
+    border: none;
+    width: 100%;
+    height: 100%;
+    padding-right: .5rem;
+    background: hsl(189, 41%, 97%);
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.pplNum{
+    padding-block: 1rem;
+    padding-bottom: 2rem;
+}
+.pplNum > input{
+    background-image: url('./images/icon-person.svg');
+}
+
+.finalTip{
+    background: hsl(183, 100%, 15%);
+    color: hsl(189, 41%, 97%);
+    padding: 1.5rem;
+    border-radius: .7rem;
+}
+.finalTip > div {
+    padding-block: .7rem;
+}
+.finalTip p {
+    color:hsl(186, 14%, 43%);
+}
+
+.eachFinalTip{
+    display: flex;
+}
+.tipAmountDiv{
+    flex-grow: 1;
+}
+.total{
+    font-size: 3rem;
+    font-weight: 600;
+    color: hsl(172, 67%, 45%);
+}
+@media (min-width: 800px) {
+    .tips{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .finalTip{
+        height: 100%;
+        display: grid;
+        flex-direction: column;
+        grid-template: 
+            "eachFinalTipOne" auto
+            "eachFinalTipTwo" auto
+            "." 1fr
+            "calcBtn" auto
+            "button" auto /1fr;
+    }
+    .eachFinalTip{
+        grid-area: eachFinalTipOne;
+        font-size: 1.3rem;
+    }
+    .eachFinalTip + .eachFinalTip{
+        grid-area: eachFinalTipTwo;
+    }
+    .calculateBtn{
+        grid-area: calcBtn;
+    }
+    .resetBtn{
+        grid-area: button;
+    }
+    .total{
+        font-size: 3rem;
+    }
+}
+
+.calculateBtn,
+.resetBtn{
+    width: 100%;
+    color: hsl(183, 100%, 15%);
+    font-size: 1.4rem;
+    padding-block: .6rem;
+    margin-top: 1.5rem;
+    background: hsl(172, 67%, 45%);
+    border: none;
+    border-radius: .3rem;
+    cursor: pointer;
+}
+
+.attribution{
+    padding-block: 2rem;
+    text-align: center;
+    color: hsl(183, 100%, 15%);
+    font-size: 1.2rem;
+}
+.attribution a{
+    text-decoration: none;
+    color: hsl(172, 67%, 45%);
+}
+
+
+.calculateBtn:active,
+.resetBtn:active{
+    transform: scale(.95);
+    transition: 100ms;
+}
